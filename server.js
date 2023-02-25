@@ -51,9 +51,9 @@ const checkNotAuthenticated = (req, res, next) => {
   next();
 };
 
-app.get("/", checkAuthenticated, (req, res) =>
-  res.render("index.ejs", { name: req.user.name, user: req.user })
-);
+app.get("/", checkAuthenticated, (req, res) => {
+  res.render("index.ejs", { name: req.user.name, user: req.user });
+});
 
 app.get("/login", checkNotAuthenticated, (_req, res) => res.render("login.ejs"));
 app.post(
